@@ -1,0 +1,81 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\ArsArev\ArsArev\.zArs\ArsseniyArefev\Coleso\bin\Debug\Coleso.exe, файл: C:\Users\user\Documents\Arduino\libraries\TX\TXLib.h, строка: 14268, функция: intptr_t {anonymous}::TX::txPlayVideo(int, int, int, int, const char*, double, double, HWND),
+
+Сообщение: Возможно, окно рисования не создано или не в порядке.
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-09-05 19:24:34 +0400], Instance: 0x005042FC (32-bit), Flags: CMdre0, Thread: 0xFDC (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00426893 in C:\Users\user\ArsArev\ArsArev\.zArs\ArsseniyArefev\Coleso\bin\Debug\Coleso.exe: txPlayVideo() at C:/Users/user/Documents/Arduino/libraries/TX/TXLib.h (14268)
+# 1 0x00427A42 in C:\Users\user\ArsArev\ArsArev\.zArs\ArsseniyArefev\Coleso\bin\Debug\Coleso.exe: txPlayVideo() at C:/Users/user/Documents/Arduino/libraries/TX/TXLib.h (14420)
+# 2 0x0040570B in C:\Users\user\ArsArev\ArsArev\.zArs\ArsseniyArefev\Coleso\bin\Debug\Coleso.exe: _txCleanup() at C:/Users/user/Documents/Arduino/libraries/TX/TXLib.h (9091)
+# 3 0x00404996 in C:\Users\user\ArsArev\ArsArev\.zArs\ArsseniyArefev\Coleso\bin\Debug\Coleso.exe: _txOnCExit() at C:/Users/user/Documents/Arduino/libraries/TX/TXLib.h (8903)
+# 4 0x00401284 in C:\Users\user\ArsArev\ArsArev\.zArs\ArsseniyArefev\Coleso\bin\Debug\Coleso.exe: __mingw_CRTStartup()
+# 5 0x004012C5 in C:\Users\user\ArsArev\ArsArev\.zArs\ArsseniyArefev\Coleso\bin\Debug\Coleso.exe: WinMainCRTStartup()
+# 6 0x77A180CE in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+# 7 0x77A1809E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in intptr_t {anonymous}::TX::txPlayVideo(int, int, int, int, const char*, double, double, HWND) at C:\Users\user\Documents\Arduino\libraries\TX\TXLib.h (14268):
+
+  14266:                       double zoom /*= 0*/, double gain /*= 1*/, HWND wnd /*= txWindow()*/)
+  14267:     {
+=>14268: $1  if (wnd && wnd == txWindow() && _TX_TXWINDOW_FAILED()) return -1;
+  14269: 
+  14270: $   int time = GetTickCount();  //-V2551
+
+# 1 in intptr_t {anonymous}::TX::txPlayVideo(const char*, double, double, HWND) at C:\Users\user\Documents\Arduino\libraries\TX\TXLib.h (14420):
+
+  14418: intptr_t txPlayVideo (const char fileName[], double zoom /*= 0*/, double gain /*= 0*/, HWND wnd /*= txWindow()*/)
+  14419:     {
+=>14420: $1  return txPlayVideo (0, 0, 0, 0, fileName, zoom, gain, wnd);
+  14421:     }
+  14422: 
+
+# 2 in void {anonymous}::TX::_txCleanup() at C:\Users\user\Documents\Arduino\libraries\TX\TXLib.h (9091):
+
+   9089: 
+   9090: $   txSpeak     (NULL);
+=> 9091: $   txPlayVideo (NULL);
+   9092: 
+   9093: $   delete _txCanvas_UserDCs;
+
+# 3 in void {anonymous}::TX::_txOnCExit() at C:\Users\user\Documents\Arduino\libraries\TX\TXLib.h (8903):
+
+   8901:     OutputDebugString ("\n");
+   8902: 
+=> 8903: $5  _txCleanup();
+   8904: 
+   8905:     _TX_CALLv (Win32::_cexit, ());
+
+# 4 in int main() at C:\Users\user\ArsArev\ArsArev\.zArs\ArsseniyArefev\Coleso\main.cpp (78):
+
+     76:      xKolesa += 5;
+     77:      txSleep(50);
+=>   78:      txEnd();
+     79:         }
+     80: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-09-05 19:24:34 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\user\Documents\Arduino\libraries\TX\TXLib.h
+Compiled:	Oct 10 2024 19:04:06, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 10 2024 19:04:25
+
+Run file:	C:\Users\user\ArsArev\ArsArev\.zArs\ArsseniyArefev\Coleso\bin\Debug\Coleso.exe
+Directory:	C:\Users\user\ArsArev\ArsArev\.zArs\ArsseniyArefev\Coleso
+
+--------------------------------------------------
